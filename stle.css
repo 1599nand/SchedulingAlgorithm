@@ -1,0 +1,127 @@
+body{
+    /* background-color: rgb(176,255,24,29);
+    background: linear-gradient(0deg,rgba(34,193,195,1) 0%,rgba(253,187,45,1) 100%); */
+    /* background-color: #08AEEA;
+background-image: linear-gradient(0deg, #47b0d7 0%, #39e899 100%); */
+background-color: #D9AFD9;
+background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+
+
+}
+header h1{
+    text-align: center;
+    font-size:40px;
+    color: white;
+
+}
+header{
+    padding: 10px;
+    background-color: rgb(81,163,198);
+    margin-bottom: 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+nav {
+    overflow: hidden;
+    background-color: black;
+    border: 2px solid white;
+}
+
+nav a{
+    padding: 20px;
+    text-decoration: none;
+    text-align: center;
+    float: left;
+    color: white;
+}
+footer {
+    background-color: #333;
+    overflow: hidden;
+}
+
+footer a {
+    text-decoration: none;
+    padding: 20px;
+    text-align: center;
+    float: left;
+    color: white;
+}
+.middle{
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 1px;
+    margin-right: 1px;
+    margin-top: 5px;
+    color:orangered;
+    font-weight: 700;
+    font-size: 50px;
+    background-color: #85FFBD;
+    background-image: linear-gradient(45deg, #85FFBD 0%, #e061ee 100%);
+}
+.video{
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 50px;
+
+
+
+}
+.text{
+        padding: 15px;
+        margin: 15px;
+        font-size: 30px;
+        
+    
+}
+.right {
+    float: right;
+}
+#index{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    
+}
+
+.work{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.btn{
+    background-color: #4CAF50;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  margin-left: 500px;
+  cursor: pointer;
+}
+
+.btn1{
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}

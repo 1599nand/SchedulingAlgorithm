@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priority_scheduling(Premptive)</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+    <h2 class="middle">PRIORITY SCHEDULING (PREMPTIVE)</h2>
+    <div class="nand">
+        <table>
+            <tr>
+                <td><label type="name" class="nand1">Process</label></td>
+                <td><input type="text" id="project"></td>
+            </tr>
+
+            <tr>
+                <td><label type="name" class="nand1">Burst Time</label></td>
+                <td><input type="text" id="project1"></td>
+            </tr>
+
+            <tr>
+                <td><label type="name" class="nand1">Priority </label></td>
+                <td><input type="text" id="project2"></td>
+            </tr>
+            <tr>
+
+                <td><button type="button" onclick="myfun()" class="btn1">Click Here</button></td>
+
+            </tr>
+            <table id="dynamicTable" border="1">
+                <tr>
+                    <th>Processes </th>
+                    <th>Burst time</th>
+                    <th>Priority</th>
+                    <th>Waiting Time</th>
+                    <th>Turn around time</th>
+                </tr>
+                <tbody id="myTable">
+
+                </tbody>
+            </table>
+
+        </table>
+    </div>
+
+    <script>
+        function myfun() {
+            var test = document.getElementById("project").value;
+            var process=test.split(",");
+            var res=process.map(Number);
+            var n= process.length;
+
+            var test1 = document.getElementById("project1").value;
+            var burst_time=test.split(",");
+            var bt=process.map(Number);
+        
+
+            var test2 = document.getElementById("project2").value;
+            var Priority=test.split(",");
+            var pr=process.map(Number);
+
+          sortPriority(pr,bt,n)
+           
+
+
+
+        }
+        function sortPriority(pr,bt,n)
+        {
+            for(let i=0;i<n;i++)
+           {
+            let pos=i;
+            for(let j=i+1;j<n;j++)
+            {
+                if(pr[j]<pr[pos])
+                {
+                      pos=j;
+                }
+            }
+            let temp=pr[i];
+            pr[i]=pr[pos];
+            pr[pos]=temp;
+
+            let t=bt[i];
+            bt[i]=bt[pos];
+            bt[pos]=t;
+           }
+        }
+
+        var table = document.getElementById('myTable');
+            for (var i = 0; i < n; i++) {
+                total_wt = total_wt + wt[i];
+                total_tat = total_tat + tat[i];
+                var row = `<tr>
+                         
+                         <td>${(i + 1)}</td>
+                         <td>${bt[i]}</td>
+                        <td>${wt[i]}</td>
+                         <td>${tat[i]}</td>
+                        
+                       </tr>`
+                table.innerHTML += row
+
+            }
+    </script>
+</body>
+
+</html>

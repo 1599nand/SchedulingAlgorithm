@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FCFS CALCULATOR</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+
+<body>
+    <h2 class="middle">FCFS CALCULATOR</h2>
+    <div class="nand">
+        <table>
+            <tr>
+                <td><label type="name" class="nand1" palceholder="1,2,3">Arrival Time</label></td>
+                <td><input type="text" id="project"></td>
+            </tr>
+
+            <tr>
+                <td><label type="name" class="nand1">Burst Time</label></td>
+                <td><input type="text" id="project1"></td>
+            </tr>
+            <tr>
+
+                <td><button type="button" onclick="myfun()" class="btn1">Click Here</button></td>
+
+            </tr>
+            <table id="dynamicTable" border="1">
+                <tr>
+                    <th>Processes </th>
+                    <th>Burst time</th>
+                    <th>Waiting Time</th>
+                    <th>Turn around time</th>
+                </tr>
+                <tbody id="myTable">
+
+                </tbody>
+            </table>
+
+        </table>
+    </div>
+
+    <script>
+
+
+
+        function myfun() {
+            var test = document.getElementById("project").value;
+            var processes = test.split(",");
+            var res = processes.map(Number);
+            var n = processes.length;
+
+            var test1 = document.getElementById("project1").value;
+            let burst_time = test1.split(",");
+            var res1 = burst_time.map(Number);
+
+            findavgTime(res, n, res1);
+
+
+        }
+        function findWaitingTime(processes, n, bt, wt) {
+            // waiting time for first process 
+            wt[0] = 0;
+
+            // calculating waiting time
+            for (let i = 1; i < n; i++) {
+                wt[i] = bt[i - 1] + wt[i - 1];
+            }
+        }
+
+        function findTurnAroundTime(processes, n, bt, wt, tat) {
+            // calculating turnaround time by adding
+            // bt[i] + wt[i]
+            for (let i = 0; i < n; i++) {
+                tat[i] = bt[i] + wt[i];
+            }
+        }
+
+        function findavgTime(processes, n, bt) {
+            let wt = new Array(n), tat = new Array(n);
+            for (let i = 0; i < n; i++) {
+                wt[i] = 0;
+                tat[i] = 0;
+            }
+            let total_wt = 0, total_tat = 0;
+
+            //Function to find waiting time of all processes
+            findWaitingTime(processes, n, bt, wt);
+
+            //Function to find turn around time for all processes
+            findTurnAroundTime(processes, n, bt, wt, tat);
+
+
+
+            // Calculate total waiting time and total turn
+            // around time
+            var table = document.getElementById('myTable');
+            for (var i = 0; i < n; i++) {
+                total_wt = total_wt + wt[i];
+                total_tat = total_tat + tat[i];
+                var row = `<tr>
+                         
+                         <td>${(i + 1)}</td>
+                         <td>${bt[i]}</td>
+                        <td>${wt[i]}</td>
+                         <td>${tat[i]}</td>
+                        
+                       </tr>`
+                table.innerHTML += row
+
+            }
+            let s = total_wt / n;
+            let t = Math.floor(total_tat / n);
+            //  document.write("Average waiting time = "+ s);
+            //  document.write("<br>");
+            //  document.write("Average turn around time = ", t+" ");
+        }
+
+
+    </script>
+</body>
+
+</html>
